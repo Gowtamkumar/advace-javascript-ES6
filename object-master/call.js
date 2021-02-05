@@ -7,9 +7,9 @@ const NormalPerson = {
     getFullName: function () {
         console.log(this.firstName, this.lastName);
     },
-    chargeBill: function (amount) {
+    chargeBill: function (amount, tips, tax) {
         console.log(this);
-        this.salary = this.salary - amount;
+        this.salary = this.salary - amount -tips -tax;
         return this.salary;
         
     }
@@ -24,12 +24,8 @@ const callPerson = {
     lastName: 'Kumar',
     salary: 40000,
 }
-//NormalPerson.chargeBill(3000);
-//console.log(NormalPerson.salary);
-//this is bind method
-const heroPersonChargeBill = NormalPerson.chargeBill.bind(heroPerson);
-heroPersonChargeBill(500);
-heroPersonChargeBill(500);
-heroPersonChargeBill(2000);
-console.log(heroPerson.salary);
 
+
+//same work by call bind then short 
+NormalPerson.chargeBill.call(callPerson, 500, 500, 50)
+console.log(callPerson.salary);
