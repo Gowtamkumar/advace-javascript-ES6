@@ -7,6 +7,7 @@ const NormalPerson ={
     },
     chargeBill:function(amount){
         this.salary = this.salary -amount;
+        return this.salary;
     }
 }
 NormalPerson.chargeBill(5000);
